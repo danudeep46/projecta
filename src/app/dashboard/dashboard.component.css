@@ -1,0 +1,45 @@
+.parent{
+    height: 100vh;
+    width: 100vw;
+   /* background-color: blue; */
+   display: flex;
+}
+.left{
+height: 100%;
+width: 20%;
+background-color: aqua;
+padding: 50px;
+
+
+text-align: center;
+}
+.right{
+height: 100%;
+width: 80%;
+/* background-color: rgb(196, 119, 119); */
+/* overflow: auto; */
+}
+h1:hover{
+    border-radius: 10px;
+    background-color: rgb(16, 111, 194);
+    cursor: pointer;
+}
+button:hover{
+    border-radius: 10px;
+    background-color: rgb(14, 79, 136);
+    cursor: pointer;
+    /* background-color: brown; */
+}
+button{
+    background-color: red;
+    height: 25px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+   
+
+h1{
+    margin-bottom: 25px;
+    margin-top: 25px;
+}

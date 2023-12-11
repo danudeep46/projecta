@@ -1,0 +1,34 @@
+
+td{
+  
+    padding: 5px;
+
+}
+
+.p{
+height: 100%;
+width: 100%;
+
+
+}
+.a{
+height:10% ;
+width: 100%;
+background-color: rgb(221, 221, 231);
+display: flex;
+align-items: center;
+padding: 15px;   
+
+}
+input{
+    margin-right: 100px;
+
+}
+
+th{
+    background-color: aliceblue;
+}
+.u{
+margin-right: 100px;
+}
+

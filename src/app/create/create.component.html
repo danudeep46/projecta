@@ -1,0 +1,70 @@
+<h1>Employee Details</h1>
+<form [formGroup]="createForm">
+    <label>Name</label>
+    <input type="text" formControlName="name" placeholder="ENTER YOUR NAME">
+    <br>
+    <label>Company</label>
+    <input type="text" formControlName="company"  placeholder="ENTER YOUR COMPANY  NAME">
+    <br>
+    <label>Role</label>
+    <input type="text" formControlName="role" placeholder="ENTER YOUR ROLE  NAME">
+    <br>
+    <label>Package</label>
+    <input type="number" formControlName="package"  placeholder="ENTER YOUR PACKAGE  AMOUNT" >
+    <br>
+    <label>Email</label>
+    <input type="email" formControlName="email"  placeholder="ENTER YOUR Email">
+    <br>
+    <label>DoB</label>
+    <input type="date" formControlName="dob"  placeholder="ENTER YOUR DOB">
+    <br>
+    <div formGroupName="address">
+    <label>AddressLine</label>
+    <input type="text" formControlName="addressline"  placeholder="ENTER YOUR  AddressLine">
+    <br>
+    <label>City</label>
+    <input type="text" formControlName="city"  placeholder="ENTER YOUR CITY">
+    <br>
+    <label>State</label>
+    <input type="text" formControlName="state"  placeholder="ENTER YOUR STATE">
+    <br>
+    <label>Pincode</label>
+    <input type="number" formControlName="pincode"  placeholder="ENTER YOUR PINCODE">
+    <br>
+</div>
+    <button (click)="add()">Hikes</button>
+    <br>
+    <div formArrayName="hikes">
+    <div *ngFor="let hikes of hikesFormArray.controls; let i=index">
+        <div formGroupName="{{i}}">
+            <label>Year</label>
+            <input type="date" formControlName="year"  placeholder="ENTER YOUR YEAR">
+            <br>
+            <label>Percentage</label>
+            <input type="number" formControlName="percentage"  placeholder="ENTER YOUR Hike Percentage">
+            <br>
+            <button (click)="deletes(i)">Delete</button>
+            <hr>
+        </div>
+    </div>
+</div>
+<br>
+    <label>Work From Office</label>
+    <input type="radio" name="type" formControlName="type" value="wfo">
+    <label>Remote</label>
+    <input type="radio" name="type" formControlName="type" value="remote">
+   
+    <br>
+    <div *ngIf="createForm.get('type')?.value=='wfo'">
+        <label>Travel Fee</label>
+        <input type="number" name="type" formControlName="collecttravelfee"  placeholder="ENTER YOUR TRAVEL FEE">
+
+    </div>
+    <br>
+    <div *ngIf="createForm.get('type')?.value=='remote'">
+        <label>Wifi Amount</label>
+        <input type="number" name="type" formControlName="collectwifiamount"  placeholder="ENTER YOUR WIFI AMOUNT">
+
+    </div>
+    <button (click)="submit()">Submit</button>
+</form>

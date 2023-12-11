@@ -1,0 +1,88 @@
+<div class="p">
+<div class="a">
+    <input type="text" placeholder="Search" (keypress)="getFilteredall()" [(ngModel)]="term">
+    <br>
+   
+    
+
+    <label for="">column</label>
+    <select  [(ngModel)]="column">
+        <option>name</option>
+        <option>package</option>
+    </select>
+    
+    <label>order</label>
+    <select [(ngModel)]="order" >
+        <option >asc</option>
+        <option>desc</option>
+    </select>
+   
+    <button (click)="sort()" class="u">Sort</button>
+    <br>
+    <select [(ngModel)]="pageno">
+        <option >1</option>
+        <option>2</option>
+        <option >3</option>
+        <option>4</option>
+        <option >5</option>
+        <option>6</option>
+    </select>
+    <button (click)="page()">Page</button>
+    <br>
+</div>
+
+<table border="1">
+    
+    <thead>
+       
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Package</th>
+            <th>Email</th>
+            <th>DoB</th>
+            <th>address</th>
+            <th>Hikes</th>
+            <th>Actions</th>
+        </tr>
+    
+    </thead>
+
+
+    <tbody>  
+        <tr *ngFor="let alls of all let i = index">
+            <td>{{alls.id}}</td>
+            <td>{{alls.name}}</td>
+            <td>{{alls.company}}</td>
+            <td>{{alls.role}}</td>
+            <td [ngStyle]="{'background-color':alls.package>9?'green':'red'}">{{alls.package}}</td>
+            <td>{{alls.email}}</td>
+            <td>{{alls.dob}}</td>
+            
+            <td>
+                <tr>
+                    <td>{{alls.address.addressLine}}
+                    <br>
+                {{alls.address.city}}
+                    <br>
+                {{alls.address.state}}
+                    <br>
+                {{alls.address.pincode}}</td>
+                </tr>
+            </td>
+        
+            <td> 
+                <tr *ngFor="let hike of alls.hikes "  >
+                <td>{{hike.percentage}} % in {{hike.year}}
+             </td>
+                  </tr>
+                   </td>
+            <td >
+                <button (click)="delete(alls.id)">Delete</button> 
+            </td>
+         </tr>
+         </tbody>
+</table>
+</div>
